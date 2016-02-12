@@ -49,8 +49,19 @@ var requestListener = function(req, res) {
     case "search":
       var keyword = query.keyword;
 
+      var keywordArr = keyword.split(' ');
+
+      var sqlQuery = 'SELECT * FROM archive WHERE ';
+
       if (typeof keyword != 'undefined') {
-        conn.query('SELECT * FROM archive WHERE title LIKE "%' + keyword + '%" OR text LIKE "%' + keyword + '%"', function(err, rows, fields) {
+
+        for(var i = 0; i < keywordArr.length; i++) {
+          sqlQuery += '(title LIKE "%' + keywordArr[i] + '%" OR text LIKE "%' + keywordArr[i] + '%") AND ';
+        }
+
+        sqlQuery = sqlQuery.substring(0, sqlQuery.length - 5);
+
+        conn.query(sqlQuery, function(err, rows, fields) {
           if (err) throw err;
 
           if (rows.length > 0) {
