@@ -1,0 +1,23 @@
+{
+  "name": "pastehistoryapi",
+  "version": "1.0.0",
+  "description": "API for use with Pastehistory.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jswny/PastehistoryAPI.git"
+  },
+  "author": "Joe Seweney <joe@j1.io> (http://j1.io/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jswny/PastehistoryAPI/issues"
+  },
+  "homepage": "https://github.com/jswny/PastehistoryAPI#readme",
+  "dependencies": {
+    "mysql": "^2.10.2"
+  }
+}
